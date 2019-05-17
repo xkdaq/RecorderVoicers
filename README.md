@@ -12,4 +12,4 @@
 
 ### 下载apk
 
-<img src="https://raw.githubusercontent.com/xkdaq/RecorderVoicers/master/screenshot/code_apk.png" width="30" height="30" />
+<img src="https://raw.githubusercontent.com/xkdaq/RecorderVoicers/master/screenshot/code_apk.png" width="120" height="120" />
