@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        applicationId "com.hesjewl.ghaiai"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            keyAlias 'voicer'
+            keyPassword 'voicer'
+            storeFile file('key/voicer.jks')
+            storePassword 'voicer'
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:25.1.0'
+}
