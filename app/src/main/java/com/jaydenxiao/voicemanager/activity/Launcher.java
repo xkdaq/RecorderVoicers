@@ -22,11 +22,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
-/**
- * Created by kekex on 2019/5/21.
- */
-
 public class Launcher extends AppCompatActivity {
 
     public static Map<String, Object> getSimpleDriverInfo() {
@@ -99,16 +94,15 @@ public class Launcher extends AppCompatActivity {
             public void onResponse(Call<TypeEntity> call, Response<TypeEntity> response) {
                 TypeEntity body = response.body();
                 if (body != null) {
-                    Log.e("xuke", "---");
                     TypeEntity.DataBean data = body.getData();
-
                     if (data != null) {
                         int status = data.getStatus();
-                        Log.e("xuke","status---"+status);
                         if (status == 0) {
                             startActivity(new Intent(Launcher.this, MainActivity.class));
+                            finish();
                         } else {
                             startActivity(new Intent(Launcher.this, MainVestActivity.class));
+                            finish();
                         }
                     }
                 }
@@ -116,8 +110,8 @@ public class Launcher extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<TypeEntity> call, Throwable t) {
-                Log.e("xuke", t.getMessage());
                 startActivity(new Intent(Launcher.this, MainActivity.class));
+                finish();
             }
         });
 
